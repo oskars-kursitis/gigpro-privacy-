@@ -79,6 +79,10 @@
   .contact-block p { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
   .contact-block a { color: var(--accent); text-decoration: none; font-weight: 600; }
   .contact-block a:hover { text-decoration: underline; }
+  section table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  section th, section td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  section th { color: var(--muted); font-weight: 600; }
+  section a { color: var(--accent); }
   @media (max-width: 480px) {
     .doc-title { font-size: 22px; }
     main { padding: 28px 16px 60px; }
@@ -107,55 +111,134 @@
 <main>
   <p class="doc-eyebrow">GigPro</p>
   <h1 class="doc-title">Privacy Policy</h1>
-  <p class="doc-meta">Effective date: 14 July 2026 &nbsp;·&nbsp; app.gigpro.manager</p>
+  <p class="doc-meta">Effective date: 12 October 2026 &nbsp;·&nbsp; app.gigpro.manager &nbsp;·&nbsp; Made by Oskars Kursitis, UK</p>
 
   <div class="intro">
-    GigPro is a local-first app. Your jobs, invoices, customers, and financial data are stored only on your device. We do not run servers that receive, store, or process your personal business data.
+    If you work on your own, <strong>everything stays on your phone</strong> — no account, nothing on our servers.
+    If you use <strong>GigPro Teams</strong> to run or join a crew, we store only what's needed to get the day from
+    the owner's phone to the crew's phones and the report back.
   </div>
 
   <section>
-    <h2>What data we collect</h2>
-    <p>GigPro does not collect, transmit, or store any personal data on external servers. All data you enter — jobs, invoices, customers, expenses, and overheads — is saved locally on your device using standard Android storage.</p>
-    <p>The only external services the app may contact are:</p>
+    <h2>The short version</h2>
     <ul>
-      <li><strong>Open-Meteo</strong> — an open-source weather API used to show forecast temperatures on the job calendar. Your approximate location is sent to this API to fetch local weather. Open-Meteo does not store or sell location data. No account is required.</li>
-      <li><strong>Xero</strong> (optional) — if you choose to connect a Xero account, an OAuth token is stored securely on your device. Invoice data is sent to Xero only when you explicitly push an invoice.</li>
-      <li><strong>RevenueCat</strong> (optional) — if you subscribe to GigPro Pro, purchase transactions are processed via RevenueCat. RevenueCat's privacy policy governs that data.</li>
+      <li>Solo use: your jobs, customers and invoices never leave your phone.</li>
+      <li>Teams (optional, needs an account): crew, day plans and reports are stored on our server (Supabase, London).</li>
+      <li>To work out drive times, the addresses of your stops are sent to Google Maps.</li>
+      <li>No ads. No analytics or tracking tools. We don't sell data.</li>
+      <li>You can delete your account and its server data from inside the app at any time.</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Location</h2>
-    <p>GigPro requests your device location solely to fetch weather for the job calendar. Location is not stored, logged, or shared with any third party beyond the Open-Meteo weather request. You may deny location permission; the weather feature will simply not appear.</p>
+  <section id="on-your-phone">
+    <h2>1. Data on your phone (everyone)</h2>
+    <p>Jobs, customers (names, addresses, phone numbers, emails you enter), invoices, expenses, overheads, your business
+    profile and bank details, and app settings are stored <strong>only on your device</strong>, in the app's private storage.
+    Backups and exports go wherever you choose to send them. We never see any of this.</p>
   </section>
 
-  <section>
-    <h2>Backups and exports</h2>
-    <p>GigPro can create backup files and CSV exports. These files are saved to your device and shared only when you explicitly use the share function. We have no access to these files. Where you send them is governed by those services' own policies.</p>
+  <section id="teams">
+    <h2>2. GigPro Teams (only if you create an account)</h2>
+    <p>When you create an account and run or join a crew, we store on our server:</p>
+    <table>
+      <tr><th>What</th><th>Why</th></tr>
+      <tr><td>Your email address, name and password (stored hashed — we can't read it)</td><td>To sign you in</td></tr>
+      <tr><td>Crew name, who's in the crew and their role</td><td>So the right people see the right days</td></tr>
+      <tr><td>The day plan the owner sends: stop names, addresses, planned durations, notes, start time</td><td>So the crew's phones can show the day</td></tr>
+      <tr><td>What the crew records: arrived / left times, flags (e.g. "extra work") and their notes</td><td>So the owner gets the end-of-day report</td></tr>
+      <tr><td>A push-notification token for your phone</td><td>To tell the crew a day has come in, and the owner when a report is sent</td></tr>
+    </table>
+    <p>Only members of your crew and the crew owner can see your crew's data. Server data is stored with
+    <strong>Supabase</strong> in London, UK. Push notifications are delivered by <strong>Google Firebase Cloud Messaging</strong>.</p>
+    <p><strong>Customer details belong to the business using GigPro.</strong> If you're a crew owner, the addresses and
+    notes you send to your crew are your customers' data, and you decide what goes in them.</p>
   </section>
 
-  <section>
-    <h2>Notifications</h2>
-    <p>GigPro may send local notifications (for example, job reminders). These are generated on-device and are not routed through any external service.</p>
+  <section id="drive-times">
+    <h2>3. Drive times (Google Maps)</h2>
+    <p>To show the travel time between stops, GigPro sends the addresses of consecutive stops to the
+    <strong>Google Maps Routes API</strong>. Google receives the addresses — not names, prices or notes.
+    Results are cached on your phone so the same journey isn't looked up again and again.</p>
   </section>
 
-  <section>
-    <h2>Children</h2>
-    <p>GigPro is intended for use by adults operating as self-employed tradespeople or gig workers. We do not knowingly collect data from children under 13.</p>
+  <section id="location">
+    <h2>4. Location (weather only)</h2>
+    <p>With your permission, GigPro uses your phone's approximate location to fetch the weather forecast from
+    <strong>Open-Meteo</strong>. Coordinates are sent to Open-Meteo for that purpose only and are not stored by us.
+    GigPro does not track your location history. You can say no — the weather just won't show.</p>
   </section>
 
-  <section>
-    <h2>Your rights</h2>
-    <p>Because all data is stored locally on your device, you have full control over it at all times. You can delete all app data by uninstalling GigPro or by clearing the app's storage in your device settings. No request to us is needed.</p>
+  <section id="camera">
+    <h2>5. Camera</h2>
+    <p>The camera is used only to scan a crew's invite QR code, and only when you choose to. Nothing is recorded or
+    uploaded. You can type the code instead.</p>
   </section>
 
-  <section>
-    <h2>Changes to this policy</h2>
-    <p>If we make material changes to this policy, we will update the effective date above. Continued use of GigPro after changes constitutes acceptance.</p>
+  <section id="crash-reports">
+    <h2>6. Crash reports</h2>
+    <p>We use <strong>Sentry</strong> to receive crash reports (device model, Android version, app version, the error
+    and where in the code it happened). They're used to fix bugs, not to identify you.</p>
+  </section>
+
+  <section id="optional">
+    <h2>7. Optional connections</h2>
+    <ul>
+      <li><strong>Xero</strong> — only if you connect it. Invoices you choose to push go to your own Xero account.</li>
+      <li><strong>GigPro Plus subscription</strong> — purchases are handled by Google Play and <strong>RevenueCat</strong>
+      (which records whether your subscription is active). We never see card details.</li>
+    </ul>
+  </section>
+
+  <section id="retention">
+    <h2>8. How long we keep it</h2>
+    <ul>
+      <li>Account and crew data: until you delete your account (or the crew owner deletes the crew).</li>
+      <li>Day plans and reports: kept with the crew so owners can look back; deleted with the crew.</li>
+      <li>Push tokens: replaced when they change; deleted with your account.</li>
+    </ul>
+  </section>
+
+  <section id="deleting-your-data">
+    <h2>9. Deleting your data</h2>
+    <p><strong>In the app:</strong> Settings → Account → <strong>Delete account</strong>. This permanently deletes your
+    account, any crew you own and that crew's day history, and your push tokens. Data on your phone isn't touched —
+    uninstall the app to remove that.</p>
+    <p><strong>By email:</strong> write to <a href="mailto:osvalds14@gmail.com">osvalds14@gmail.com</a> from your
+    account's email address and we'll delete your account and its data within 30 days.</p>
+  </section>
+
+  <section id="your-rights">
+    <h2>10. Your rights (UK GDPR)</h2>
+    <p>You can ask for a copy of the data we hold about you, ask us to correct or delete it, or object to how it's
+    used — just email us. You can also complain to the Information Commissioner's Office
+    (<a href="https://ico.org.uk">ico.org.uk</a>).</p>
+  </section>
+
+  <section id="children">
+    <h2>11. Children</h2>
+    <p>GigPro is a business tool for self-employed people and their crews, and isn't intended for anyone under 16.</p>
+  </section>
+
+  <section id="changes">
+    <h2>12. Changes to this policy</h2>
+    <p>If this policy changes we'll update the date at the top and, for anything significant, mention it in the
+    app's release notes.</p>
+  </section>
+
+  <section id="third-parties">
+    <h2>Third parties we use</h2>
+    <ul>
+      <li>Supabase — <a href="https://supabase.com/privacy">supabase.com/privacy</a></li>
+      <li>Google (Firebase Cloud Messaging, Maps Platform, Play) — <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+      <li>Open-Meteo — <a href="https://open-meteo.com/en/terms">open-meteo.com/en/terms</a></li>
+      <li>Sentry — <a href="https://sentry.io/privacy/">sentry.io/privacy</a></li>
+      <li>RevenueCat — <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+      <li>Xero — <a href="https://www.xero.com/legal/privacy/">xero.com/legal/privacy</a></li>
+    </ul>
   </section>
 
   <div class="contact-block">
-    <p>Questions about this policy?</p>
+    <p>Questions about this policy, or want your data deleted?</p>
     <a href="mailto:osvalds14@gmail.com">osvalds14@gmail.com</a>
   </div>
 </main>
