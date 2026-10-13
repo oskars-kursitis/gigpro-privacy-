@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GigPro — Email confirmed</title>
+<style>
+  :root {
+    --bg: #F7F8FA; --surface: #FFFFFF; --border: #DDE2EC;
+    --text: #1C2333; --muted: #6B7A99; --accent: #2E7D6B;
+    --accent-light: #EAF4F1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111820; --surface: #1A2230; --border: #283045;
+      --text: #E8ECF4; --muted: #8A98B8; --accent: #4AAE94;
+      --accent-light: #1A2F2A;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+  }
+  .header-inner {
+    max-width: 680px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-mark {
+    width: 30px; height: 30px; background: var(--accent);
+    border-radius: 7px; display: flex; align-items: center; justify-content: center;
+  }
+  .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+  .logo-text { font-size: 16px; font-weight: 700; color: var(--text); }
+  nav a {
+    font-size: 14px; font-weight: 600; color: var(--muted);
+    text-decoration: none; margin-left: 20px;
+    transition: color 0.15s;
+  }
+  nav a:hover, nav a.active { color: var(--accent); }
+  main { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; }
+  .doc-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+  }
+  .doc-title {
+    font-size: 28px; font-weight: 700; letter-spacing: -0.5px;
+    line-height: 1.2; margin-bottom: 6px;
+  }
+  .doc-meta {
+    font-size: 13px; color: var(--muted); margin-bottom: 32px;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border);
+  }
+  .intro {
+    background: var(--accent-light); border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0; padding: 14px 18px;
+    font-size: 15px; margin-bottom: 36px; line-height: 1.6;
+  }
+  section { margin-bottom: 36px; }
+  section h2 {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  section p { font-size: 15px; margin-bottom: 12px; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { padding-left: 20px; margin-top: 8px; }
+  section ul li { font-size: 15px; margin-bottom: 6px; line-height: 1.6; }
+  .contact-block {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin-top: 40px;
+  }
+  .contact-block p { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+  .contact-block a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .contact-block a:hover { text-decoration: underline; }
+  .done { text-align: center; padding: 48px 0 24px; }
+  .tick {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;
+  }
+  .tick svg { width: 34px; height: 34px; fill: #fff; }
+  .done p { font-size: 16px; color: var(--muted); margin-top: 8px; }
+  @media (max-width: 480px) {
+    .doc-title { font-size: 22px; }
+    main { padding: 28px 16px 60px; }
+    header { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+      </div>
+      <span class="logo-text">GigPro</span>
+    </a>
+    <nav>
+      <a href="index.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="done">
+    <div class="tick">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+    </div>
+    <h1 class="doc-title">Email confirmed</h1>
+    <p>You're all set. Go back to the GigPro app and sign in.</p>
+    <p>You can close this page.</p>
+  </div>
+
+  <div class="contact-block">
+    <p>Something not working?</p>
+    <a href="mailto:osvalds14@gmail.com">osvalds14@gmail.com</a>
+  </div>
+</main>
+</body>
+</html>
