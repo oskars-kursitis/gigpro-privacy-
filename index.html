@@ -111,7 +111,7 @@
 <main>
   <p class="doc-eyebrow">GigPro</p>
   <h1 class="doc-title">Privacy Policy</h1>
-  <p class="doc-meta">Effective date: 12 October 2026 &nbsp;·&nbsp; app.gigpro.manager &nbsp;·&nbsp; Made by Oskars Kursitis, UK</p>
+  <p class="doc-meta">Effective date: 19 October 2026 &nbsp;·&nbsp; app.gigpro.manager &nbsp;·&nbsp; Made by Oskars Kursitis, UK</p>
 
   <div class="intro">
     If you work on your own, <strong>everything stays on your phone</strong> — no account, nothing on our servers.
@@ -125,6 +125,7 @@
       <li>Solo use: your jobs, customers and invoices never leave your phone.</li>
       <li>Teams (optional, needs an account): crew, day plans and reports are stored on our server (Supabase, London).</li>
       <li>To work out drive times, the addresses of your stops are sent to Google Maps.</li>
+      <li>If you ask it to, GigPro reads your calendar (on the phone, or straight from Google) to bring your customers and booked jobs in — read-only, and it stays on your phone.</li>
       <li>No ads. No analytics or tracking tools. We don't sell data.</li>
       <li>You can delete your account and its server data from inside the app at any time.</li>
     </ul>
@@ -183,7 +184,21 @@
   <section id="optional">
     <h2>7. Optional connections</h2>
     <ul>
-      <li><strong>Xero</strong> — only if you connect it. Invoices you choose to push go to your own Xero account.</li>
+      <li><strong>Xero</strong> — only if you connect it. Invoices you send are copied into your own Xero account.
+      When you use <em>Get customers in</em>, GigPro reads your Xero customers and invoices to build your customer list.
+      This goes straight between your phone and Xero — not through us.</li>
+      <li><strong>Your phone's calendar</strong> — only if you allow it. GigPro reads entries (title, date, time, place)
+      to find your customers and the jobs you've already booked. It only reads, never changes your calendar,
+      and nothing is sent to us.</li>
+      <li id="google"><strong>Google Calendar and Google Tasks</strong> — only if you tap <em>Connect Google</em>.
+      GigPro asks Google for read-only access, then reads your calendar events and tasks (title, date, time, place)
+      straight from Google to your phone, to find your customers and booked jobs. It never changes anything in your
+      Google account, and the data isn't sent to us or anyone else, used for ads, or used to train AI.
+      Disconnect any time in the app, or at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+      GigPro's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.</li>
+      <li><strong>Address search and “Choose on map”</strong> — the text you search, or the spot you pick, is sent to
+      <strong>OpenStreetMap (Nominatim)</strong> and <strong>postcodes.io</strong> to find the address. Map pictures come
+      from OpenStreetMap. Nothing else is sent.</li>
       <li><strong>GigPro Plus subscription</strong> — purchases are handled by Google Play and <strong>RevenueCat</strong>
       (which records whether your subscription is active). We never see card details.</li>
     </ul>
@@ -234,6 +249,8 @@
       <li>Sentry — <a href="https://sentry.io/privacy/">sentry.io/privacy</a></li>
       <li>RevenueCat — <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
       <li>Xero — <a href="https://www.xero.com/legal/privacy/">xero.com/legal/privacy</a></li>
+      <li>OpenStreetMap Foundation — <a href="https://osmfoundation.org/wiki/Privacy_Policy">osmfoundation.org/wiki/Privacy_Policy</a></li>
+      <li>postcodes.io — <a href="https://postcodes.io/about">postcodes.io/about</a></li>
     </ul>
   </section>
 
